@@ -26,6 +26,6 @@ print(type(juan))
 jose = empleado("jose", 23)
 jose.trabajar()
 
-jose.principiante(juan)
-print(type(juan))
+#jose.principiante(juan)
+#print(type(juan))
 
