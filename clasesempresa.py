@@ -15,10 +15,11 @@ class Persona:
         print("estatura: ",self.estatura)
         print("peso: ",self.peso)
 
-class Gerente(persona):
-    def __init__(self,nombre,edad,estatura,peso,genero,sueldo):
+class Empleado(Persona):
+    def __init__(self,nombre,edad,estatura,peso,genero,sueldo,antiguedad):
         super().__init__(nombre, edad, estatura, peso, genero)
         self.sueldo = sueldo
+        self.antiguedad = antiguedad
 
     def trabajar(self):
         print("trabajando")
@@ -26,13 +27,14 @@ class Gerente(persona):
     def principiante(self, other):
         other.__class__ = empleado
 
-class Empleado(Gerente):
-    def __init__(self, nombre, edad):
-        self.nombre = nombre
-        self.edad = edad
+class Gerente(Empleado):
+    def __init__(self, nombre,edad,estatura,peso,genero,sueldo,antiguedad,presupuesto = 36500):
+        super().__init__(nombre,edad,estatura,peso,genero,sueldo,antiguedad)
+        self.__presupuesto = presupuesto
 
-    def viajando(self):
-        print("viajando")
+    def cambiarpresupuesto(self,nuevopres:int):
+        self.__presupuesto = nuevopres
+
 
 
 
