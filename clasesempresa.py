@@ -40,6 +40,7 @@ class Vestimenta(Saco):
 
 class Persona(Vestimenta):
     def __init__(self,nombre):
+        super().__init__()
         self.nombre = nombre
         self.genero = "x"
         self.edad = 36
@@ -58,7 +59,7 @@ class Persona(Vestimenta):
         print(self.nombre,"trabajando")
 
     def vestir(self):
-        print(self.nombre,"viste un saco ",self.saco,"pantalones ",self.pantalones,"y zapatos",self.zapatos)
+        print(self.nombre,"viste un saco",self.saco,"pantalones",self.pantalones,"y zapatos",self.zapatos)
 
     #getters
     def getnombre(self):
