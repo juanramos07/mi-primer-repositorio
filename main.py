@@ -16,8 +16,16 @@ pbuscado= input("escriba el nombre de la persona que busca: ")
 gerente=Ce.Gerente()
 gerente.setnombre(pbuscado)
 (gerente.entrevistar())
+#la persona1 observa al gerente dentro de su oficina
+print("la persona observa al gerente entrevistando en la ventanilla")
+print(persona1.getnombre(),"esta pensando que llevó un mal atuendo para su entrevista de trabajo")
+print("en la mente de ",persona1.getnombre(),"....")
+print("el gerente ha de medir como ",gerente.getestatura(),"es mas alto que yo")
+print("su saco es de ",gerente.botones,"botones")
+print("espero que no le de mucha importancia a mi vestimenta")
 
 # escenario del gerente entrevistando a la persona interesada en la vacante
+print("")
 print("Nos contextualizamos en la oficina del gerente entrevistando a la persona")
 gerente.hablar("Buenas tardes, ¿como se llama?")
 #se crea objeto
@@ -64,8 +72,8 @@ print("Respuestas posibles a esta pregunta"
       "\n3)aportando en los objetivos organizacionales de la empresa")
 
 op5= int(input("elija la opcion que tenga pensado en mente: "))
-
 gerente.contratar(op1,op2,op3,op4,op5)
+
 
 
 

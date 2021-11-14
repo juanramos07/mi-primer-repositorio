@@ -165,7 +165,7 @@ class Gerente(Empleado):
         else:
             cal5=0
         res=cal1+cal2+cal3+cal4+cal5
-        if res== 4 or 5:
+        if res== 5:
             print("Felicades estas contrado en la empresa",Empresa.Getnamempresa(self))
         else:
             print("Fue una agradable entrevista muy contundentes sus respuestas, nosotros le llamamos la siguiente semana para confirmarle")
