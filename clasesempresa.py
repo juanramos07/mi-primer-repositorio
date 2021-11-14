@@ -133,11 +133,46 @@ class Gerente(Empleado):
         self.presupuesto = nuevopres
 
     def entrevistar(self):
-        a= print("El gerente se llama",Gerente.getnombre(self),"en este momento el esta entrevistando a un candidato para una vacante en la empresa")
-        return a
+        print("El gerente se llama",Gerente.getnombre(self),"en este momento el esta entrevistando a un candidato para una vacante en la empresa")
+
 
     def trabajar(self):
         print(self.nombre,"esta supervisando el area de markenting para las fechas del buen fin")
+    def contratar(self,r1,r2,r3,r4,r5):
+        cal1=0
+        cal2=0
+        cal3=0
+        cal4=0
+        cal5=0
+        if r1==3:
+            cal1=1
+        else:
+            cal1=0
+        if r2==2:
+            cal2=1
+        else:
+            cal2=0
+        if r3==1:
+            cal3=1
+        else:
+            cal3=0
+        if r4== 1 or 2:
+            cal4=1
+        else:
+            cal4=0
+        if r5==3:
+            cal5=1
+        else:
+            cal5=0
+        res=cal1+cal2+cal3+cal4+cal5
+        if res== 4 or 5:
+            print("Felicades estas contrado en la empresa",Empresa.Getnamempresa(self))
+        else:
+            print("Fue una agradable entrevista muy contundentes sus respuestas, nosotros le llamamos la siguiente semana para confirmarle")
+
+
+
+
 
 
 
