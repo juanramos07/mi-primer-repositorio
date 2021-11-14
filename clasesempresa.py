@@ -1,43 +1,4 @@
 
-class Persona:
-    def __init__(self,nombre,edad,estatura,peso,genero = "x"):
-        self.nombre = nombre
-        self.genero = genero
-        self.edad = edad
-        self.estatura = estatura
-        self.peso = peso
-
-    def describir(self):
-        print(" ")
-        print("nombre: ",self.nombre)
-        print("Genero : ",self.genero)
-        print("Edad: ",self.edad)
-        print("estatura: ",self.estatura,"mts")
-        print("peso: ",self.peso)
-    def trabajar(self):
-        print(self.nombre,"trabajando")
-    #getters
-    def getnombre(self):
-        return self.nombre
-    def getgenero(self):
-        return self.genero
-    def getedad(self):
-        return  self.edad
-    def getestatura(self):
-        return self.estatura
-    def getpeso(self):
-        return self.peso
-    #setters
-    def setnombre(self,n):
-        self.nombre= n
-    def setgener(self,g):
-        self.genero= g
-    def setedad(self,e):
-        self.edad=e
-    def setestatura(self,estatu):
-        self.estatura= estatu
-    def setpeso(self,pes):
-        self.peso = pes
 class Saco:
     def __init__(self):
         self.botones= 3
@@ -49,13 +10,14 @@ class Saco:
         self.botones=nbotones
 
 class Vestimenta(Saco):
-    def __init__(self,saco,pantalones,camisa,corbata):
+    def __init__(self):
         super().__init__()
         #datos por defecto
         self.saco="negro"
         self.pantalones="negros"
         self.camisa = "blanca"
         self.corbata ="negra"
+        self.zapatos = "negros"
 
     def getsaco(self):
         return self.saco
@@ -76,6 +38,54 @@ class Vestimenta(Saco):
     def setcorbata(self,nuevacorba):
         self.corbata= nuevacorba
 
+class Persona(Vestimenta):
+    def __init__(self,nombre):
+        self.nombre = nombre
+        self.genero = "x"
+        self.edad = 36
+        self.estatura = 1.80
+        self.peso = 80
+
+    def describir(self):
+        print(" ")
+        print("nombre: ",self.nombre)
+        print("Genero : ",self.genero)
+        print("Edad: ",self.edad)
+        print("estatura: ",self.estatura,"mts")
+        print("peso: ",self.peso)
+
+    def trabajar(self):
+        print(self.nombre,"trabajando")
+
+    def vestir(self):
+        print(self.nombre,"viste un saco ",self.saco,"pantalones ",self.pantalones,"y zapatos",self.zapatos)
+
+    #getters
+    def getnombre(self):
+        return self.nombre
+    def getgenero(self):
+        return self.genero
+    def getedad(self):
+        return  self.edad
+    def getestatura(self):
+        return self.estatura
+    def getpeso(self):
+        return self.peso
+
+    #setters
+    def setnombre(self,n):
+        self.nombre= n
+    def setgener(self,g):
+        self.genero= g
+    def setedad(self,e):
+        self.edad=e
+    def setestatura(self,estatu):
+        self.estatura= estatu
+    def setpeso(self,pes):
+        self.peso = pes
+
+
+
 class Empresa:
     def __init__(self):
         self.nombre = "Ryo-Electronics"
@@ -84,14 +94,15 @@ class Empresa:
         self.producto = "Materiales para electronica"
     def Getnamempresa(self):
         return self.nombre
+
 class Empleado(Persona,Empresa):
-    def __init__(self,nombre,edad,estatura,peso,genero,sueldo,antiguedad):
-        super().__init__(nombre, edad, estatura, peso, genero)
-        self.__sueldo = sueldo
-        self.__antiguedad = antiguedad
+    def __init__(self,nombre):
+        super().__init__(nombre)
+        self.__sueldo = 12000
+        self.__antiguedad = 2
 
     def trabajar(self):
-        print("trabajando")
+        print("trabajando en el area de ventas")
 
 
     #getters
@@ -108,8 +119,9 @@ class Empleado(Persona,Empresa):
 
 
 class Gerente(Empleado,Vestimenta):
-    def __init__(self, nombre,edad,estatura,peso,genero,sueldo,antiguedad,presupuesto = 36500):
-        super().__init__(nombre,edad,estatura,peso,genero,sueldo,antiguedad)
+    def __init__(self,nombre):
+        super().__init__(nombre)
+        Vestimenta.__init__(self,saco,pantalones,camisa,corbata)
         self.__presupuesto = presupuesto
     #getters
     def getpresupuesto(self):
@@ -117,6 +129,13 @@ class Gerente(Empleado,Vestimenta):
     #setters
     def cambiarpresupuesto(self,nuevopres:int):
         self.__presupuesto = nuevopres
+
+    def entrevistar(self):
+        print("El gerente se llama",self.nombre,"en este momento el esta entrevistando a un candidato para una vacante en la empresa")
+    def trabajar(self):
+        print(self.nombre,"esta supervisando el area de markenting para las fechas del buen fin")
+
+
 
 
 
