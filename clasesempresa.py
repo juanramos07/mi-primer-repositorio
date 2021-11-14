@@ -38,42 +38,6 @@ class Persona:
         self.estatura= estatu
     def setpeso(self,pes):
         self.peso = pes
-
-
-class Empleado(Persona):
-    def __init__(self,nombre,edad,estatura,peso,genero,sueldo,antiguedad):
-        super().__init__(nombre, edad, estatura, peso, genero)
-        self.__sueldo = sueldo
-        self.__antiguedad = antiguedad
-
-    def trabajar(self):
-        print("trabajando")
-
-
-    #getters
-    def getsueldo(self):
-        return self.__sueldo
-    def getantiguedad(self):
-        return self.__antiguedad
-    #setters
-    def aumentarsueldo(self,porcentaje:int):
-        self.__sueldo += (self.__sueldo * porcentaje)/100
-    def setantiguedad(self,nant):
-        self.__antiguedad = nant
-
-
-
-class Gerente(Empleado):
-    def __init__(self, nombre,edad,estatura,peso,genero,sueldo,antiguedad,presupuesto = 36500):
-        super().__init__(nombre,edad,estatura,peso,genero,sueldo,antiguedad)
-        self.__presupuesto = presupuesto
-    #getters
-    def getpresupuesto(self):
-        print("el presupuesto es: ",self.__presupuesto)
-    #setters
-    def cambiarpresupuesto(self,nuevopres:int):
-        self.__presupuesto = nuevopres
-
 class Saco:
     def __init__(self):
         self.botones= 3
@@ -111,6 +75,50 @@ class Vestimenta(Saco):
         self.camisa = nuecamisa
     def setcorbata(self,nuevacorba):
         self.corbata= nuevacorba
+
+class Empresa:
+    def __init__(self):
+        self.nombre = "Ryo-Electronics"
+        self.Nempleados= 1500
+        self.giro = "comercial"
+        self.producto = "Materiales para electronica"
+    def Getnamempresa(self):
+        return self.nombre
+class Empleado(Persona,Empresa):
+    def __init__(self,nombre,edad,estatura,peso,genero,sueldo,antiguedad):
+        super().__init__(nombre, edad, estatura, peso, genero)
+        self.__sueldo = sueldo
+        self.__antiguedad = antiguedad
+
+    def trabajar(self):
+        print("trabajando")
+
+
+    #getters
+    def getsueldo(self):
+        return self.__sueldo
+    def getantiguedad(self):
+        return self.__antiguedad
+    #setters
+    def aumentarsueldo(self,porcentaje:int):
+        self.__sueldo += (self.__sueldo * porcentaje)/100
+    def setantiguedad(self,nant):
+        self.__antiguedad = nant
+
+
+
+class Gerente(Empleado,Vestimenta):
+    def __init__(self, nombre,edad,estatura,peso,genero,sueldo,antiguedad,presupuesto = 36500):
+        super().__init__(nombre,edad,estatura,peso,genero,sueldo,antiguedad)
+        self.__presupuesto = presupuesto
+    #getters
+    def getpresupuesto(self):
+        print("el presupuesto es: ",self.__presupuesto)
+    #setters
+    def cambiarpresupuesto(self,nuevopres:int):
+        self.__presupuesto = nuevopres
+
+
 
 
 
