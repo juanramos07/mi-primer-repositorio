@@ -12,8 +12,10 @@ class Persona:
         print("nombre: ",self.nombre)
         print("Genero : ",self.genero)
         print("Edad: ",self.edad)
-        print("estatura: ",self.estatura)
+        print("estatura: ",self.estatura,"m")
         print("peso: ",self.peso)
+    def getnombre(self):
+        return self.nombre
 
 class Empleado(Persona):
     def __init__(self,nombre,edad,estatura,peso,genero,sueldo,antiguedad):
@@ -31,6 +33,8 @@ class Gerente(Empleado):
     def __init__(self, nombre,edad,estatura,peso,genero,sueldo,antiguedad,presupuesto = 36500):
         super().__init__(nombre,edad,estatura,peso,genero,sueldo,antiguedad)
         self.__presupuesto = presupuesto
+    def getpresupuesto(self):
+        print("el presupuesto es: ",self.__presupuesto)
 
     def cambiarpresupuesto(self,nuevopres:int):
         self.__presupuesto = nuevopres
