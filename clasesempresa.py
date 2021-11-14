@@ -39,9 +39,9 @@ class Vestimenta(Saco):
         self.corbata= nuevacorba
 
 class Persona(Vestimenta):
-    def __init__(self,nombre):
+    def __init__(self):
         super().__init__()
-        self.nombre = nombre
+        self.nombre = "Sin nombre"
         self.genero = "x"
         self.edad = 36
         self.estatura = 1.80
@@ -57,6 +57,9 @@ class Persona(Vestimenta):
 
     def trabajar(self):
         print(self.nombre,"trabajando")
+
+    def hablar(self,pregunta):
+        print(pregunta)
 
     def vestir(self):
         print(self.nombre,"viste un saco",self.saco,"pantalones",self.pantalones,"y zapatos",self.zapatos)
@@ -86,25 +89,24 @@ class Persona(Vestimenta):
         self.peso = pes
 
 
-
 class Empresa:
     def __init__(self):
-        self.nombre = "Ryo-Electronics"
+        self.nombreempresa = "Ryo-Electronics"
         self.Nempleados= 1500
         self.giro = "comercial"
         self.producto = "Materiales para electronica"
     def Getnamempresa(self):
-        return self.nombre
+        return self.nombreempresa
 
 class Empleado(Persona,Empresa):
-    def __init__(self,nombre):
-        super().__init__(nombre)
+    def __init__(self):
+        super().__init__()
+        Empresa.__init__(self)
         self.__sueldo = 12000
         self.__antiguedad = 2
 
     def trabajar(self):
         print("trabajando en el area de ventas")
-
 
     #getters
     def getsueldo(self):
@@ -119,20 +121,21 @@ class Empleado(Persona,Empresa):
 
 
 
-class Gerente(Empleado,Vestimenta):
-    def __init__(self,nombre):
-        super().__init__(nombre)
-        Vestimenta.__init__(self,saco,pantalones,camisa,corbata)
-        self.__presupuesto = presupuesto
+class Gerente(Empleado):
+    def __init__(self):
+        super().__init__()
+        self.presupuesto = 36000
     #getters
     def getpresupuesto(self):
-        print("el presupuesto es: ",self.__presupuesto)
+        print("el presupuesto es: ",self.presupuesto)
     #setters
     def cambiarpresupuesto(self,nuevopres:int):
-        self.__presupuesto = nuevopres
+        self.presupuesto = nuevopres
 
     def entrevistar(self):
-        print("El gerente se llama",self.nombre,"en este momento el esta entrevistando a un candidato para una vacante en la empresa")
+        a= print("El gerente se llama",Gerente.getnombre(self),"en este momento el esta entrevistando a un candidato para una vacante en la empresa")
+        return a
+
     def trabajar(self):
         print(self.nombre,"esta supervisando el area de markenting para las fechas del buen fin")
 
